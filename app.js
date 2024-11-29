@@ -3,7 +3,7 @@ require("express-async-errors");
 
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
 const connectDB = require("./db/connect");
 const path = require("path");
 const router = require("./routes/rout");
@@ -11,7 +11,7 @@ const authRoutes = require("./routes/authRoutes");
 // const socketFunc = require("./utils/socket");
 
 app.use(express.json());
-
+app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", router);
 app.use("/", authRoutes);
