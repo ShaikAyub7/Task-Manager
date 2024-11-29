@@ -10,7 +10,8 @@ body {
   align-items: center;
 }
 .form {
-  width: 600px;
+  width: 300px;
+  max-width: 100%;
   border: 0.8px solid black;
   border-radius: 10px;
   /* display: flex; */
