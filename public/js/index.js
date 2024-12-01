@@ -7,6 +7,7 @@ const task = document.querySelector(".task");
 const errorContainer = document.querySelector(".error-container");
 const deleteBtn = document.querySelectorAll(".deleteBtn");
 const updateBtn = document.querySelectorAll(".updateBtn");
+const statussConatiner = document.querySelector(".status-container");
 
 // const socket = io();
 
@@ -33,11 +34,15 @@ const showTask = async (e) => {
     taskContainer.innerHTML = "";
 
     tasks.forEach((singleTask) => {
-      const { name, status, _id } = singleTask;
+      let { name, status, _id } = singleTask;
+
       const taskHTML = `
         <div class="task">
           <h4><i class="fa-solid fa-bars-progress"></i> &nbsp;${name}</h4>
-        <p>${status}</p>
+        
+        <p class="status-container">${(status = status
+          ? `<i class="fa-solid fa-check" style="color: #5dff05;"></i> completed`
+          : `<i class="fa-solid fa-xmark" style="color: #ff0a0a;"></i> not completed`)}</p>
           <a href="task.html?id=${_id}" class=edit-task"><i class="fa-regular fa-pen-to-square"></i></a>
      <button type="button" class="delete-btn" data-id="${_id}"><i class="fa-solid fa-trash"></i></button>
         </div>
@@ -46,8 +51,8 @@ const showTask = async (e) => {
     });
   } catch (err) {
     console.error("Error fetching tasks:", err);
-    errorContainer.textContent =
-      err.response.headers || "Failed to load tasks.";
+    // errorContainer.textContent =
+    //   err.response.headers || "Failed to load tasks.";
   }
 };
 showTask();

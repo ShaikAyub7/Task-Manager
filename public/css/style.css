@@ -79,7 +79,8 @@ body {
 }
 .task {
   width: 500px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 4.5fr 3.5fr 1fr 1fr;
   /* padding: 40px; */
   background: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
@@ -89,7 +90,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   /* border: 0.5px solid black; */
 }
 @media screen and (max-width: 800px) {

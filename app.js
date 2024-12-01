@@ -11,7 +11,7 @@ const authRoutes = require("./routes/authRoutes");
 // const socketFunc = require("./utils/socket");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "https://task-manager-ayub.vercel.app" }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", router);
 app.use("/", authRoutes);
