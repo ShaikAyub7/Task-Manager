@@ -60,31 +60,31 @@ const showTask = async (e) => {
 };
 showTask();
 
-const updateTask = async (e) => {
-  // e.preventDefault();
-  try {
-    const response = await axios.patch(`/tasks/${id}`);
-    console.log(response);
-  } catch (err) {
-    console.error("Error fetching tasks:", err);
-    errorContainer.textContent =
-      err.response.headers || "Failed to load tasks.";
-  }
-};
-taskContainer.addEventListener("click", async function (e) {
-  const el = e.target;
-  if (el.parentElement.classList.contains("delete-btn")) {
-    // loadingDOM.style.visibility = "visible";
-    const id = el.parentElement.dataset.id;
-    try {
-      await axios.delete(`/tasks/${id}`);
-      showTask();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  // task.style.opacity = 0;
-});
+// const updateTask = async (e) => {
+//   // e.preventDefault();
+//   try {
+//     const response = await axios.patch(`/tasks/${id}`);
+//     console.log(response);
+//   } catch (err) {
+//     console.error("Error fetching tasks:", err);
+//     errorContainer.textContent =
+//       err.response.headers || "Failed to load tasks.";
+//   }
+// };
+// taskContainer.addEventListener("click", async function (e) {
+//   const el = e.target;
+//   if (el.parentElement.classList.contains("delete-btn")) {
+//     // loadingDOM.style.visibility = "visible";
+//     const id = el.parentElement.dataset.id;
+//     try {
+//       await axios.delete(`/tasks/${id}`);
+//       showTask();
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   // task.style.opacity = 0;
+// });
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {

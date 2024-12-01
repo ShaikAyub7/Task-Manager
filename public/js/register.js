@@ -11,7 +11,8 @@ form.addEventListener("submit", async function (e) {
     password: formData.get("password"),
   };
   try {
-    await axios.post("/register", data);
+    // await axios.post("/register", data);
+    await axios.post(`${apiBaseUrl}/register`, data);
     // formDataContainer.innerHTML = `${data.name} ${data.email} ${data._id}`;
     // console.log("Success:", response.data);
     // const userName = data.name;
