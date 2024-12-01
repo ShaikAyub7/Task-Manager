@@ -10,13 +10,15 @@ const updateBtn = document.querySelectorAll(".updateBtn");
 const statussConatiner = document.querySelector(".status-container");
 
 // const socket = io();
+const apiBaseUrl = "https://task-manager-ayub.vercel.app";
 
 form.addEventListener("submit", async function (e) {
   // e.preventDefault();
   const name = input.value;
   input.value = "";
   try {
-    await axios.post("/createtask", { name });
+    // await axios.post("/createtask", { name });
+    await axios.post(`${apiBaseUrl}/tasks`, { name });
     console.log("success");
   } catch (err) {
     errorContainer.innerHTML = err.messages;
@@ -26,7 +28,8 @@ form.addEventListener("submit", async function (e) {
 const showTask = async (e) => {
   // e.preventDefault();
   try {
-    const response = await axios.get("/tasks");
+    // const response = await axios.get("/tasks");
+    const response = await axios.get(`${apiBaseUrl}/tasks`);
     console.log(response);
     const {
       data: { tasks },
@@ -85,7 +88,8 @@ taskContainer.addEventListener("click", async function (e) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await axios.post("/login", data);
+    // const response = await axios.post("/login", data);
+    const response = await axios.get(`${apiBaseUrl}/login`, data);
     console.log(response);
   } catch (error) {
     console.log(error);
