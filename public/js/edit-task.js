@@ -4,6 +4,8 @@ const form = document.querySelector(".single-task-form");
 const checkBox = document.querySelector(".task-edit-completed");
 const params = window.location.search;
 const id = new URLSearchParams(params).get("id");
+const apiBaseUrl = "https://task-manager-ayub.vercel.app";
+
 console.log(id);
 const showTask = async (e) => {
   let tempName;
