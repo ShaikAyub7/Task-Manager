@@ -9,6 +9,7 @@ const {
 } = require("../controllers/tasks");
 
 router.route("/createtask").post(createTask);
+router.post("/createtask", createTask);
 router.route("/tasks").get(getAllTasks);
 router.route("/tasks/:id").patch(updateTask);
 router.route("/tasks/:id").get(getTask);
