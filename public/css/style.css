@@ -118,7 +118,7 @@ body::-webkit-scrollbar {
     max-width: 350px;
   }
   .task {
-    max-width: 250px;
+    max-width: 300px;
   }
   .input {
     width: 200px;
