@@ -10,11 +10,11 @@ const taskSchema = new mongoose.Schema({
     default: false,
     required: true,
   },
-  createdBy: {
-    type: mongoose.Types.ObjectId,
-    ref: "User",
-    required: [true, "Please provide user"],
-  },
+  // user: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "User",
+  //   // required: true,
+  // },
 });
 
 module.exports = mongoose.model("Task", taskSchema);

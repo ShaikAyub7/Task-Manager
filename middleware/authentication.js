@@ -2,21 +2,20 @@ const User = require("../models/users");
 const jwt = require("jsonwebtoken");
 const { UnauthenticatedError } = require("../errors");
 
-const auth = async (req, res, next) => {
-  // check header
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw new UnauthenticatedError("Authentication invalid");
+const auth = (req, res, next) => {
+  const token = req.header("Authorization")?.replace("Bearer ", "");
+
+  if (!token) {
+    return res.status(401).json({ error: "Authentication invalid" });
   }
-  const token = authHeader.split(" ")[1];
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    // attach the user to the job routes
-    req.user = { userId: payload.userId, name: payload.name };
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decoded);
+    req.user = decoded;
     next();
-  } catch (error) {
-    throw new UnauthenticatedError("Authentication invalid");
+  } catch (err) {
+    return res.status(401).json({ error: "Authentication invalid" });
   }
 };
 
