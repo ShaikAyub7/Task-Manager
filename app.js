@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", router);
 app.use("/", authRoutes);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 10000;
 
 const start = async () => {
   try {

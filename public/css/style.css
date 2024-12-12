@@ -42,10 +42,10 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
-.tasks {
+/* .tasks {
   /* display: flex; */
-  /* overflow: scroll; */
-}
+/* overflow: scroll; */
+/* } */
 .input {
   width: 80%;
   padding: 8px;
