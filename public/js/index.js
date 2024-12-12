@@ -15,10 +15,10 @@ const apiBaseUrl = "https://task-manager-ayub.vercel.app";
 form.addEventListener("submit", async function (e) {
   // e.preventDefault();
   const name = input.value;
-  input.value = "";
+
   try {
-    // await axios.post("/createtask", { name });
-    await axios.post(`${apiBaseUrl}/tasks`, { name });
+    await axios.post("/createtask", { name });
+    // await axios.post(`${apiBaseUrl}/tasks`, { name });
     console.log("success");
   } catch (err) {
     errorContainer.innerHTML = err.messages;
@@ -28,8 +28,8 @@ form.addEventListener("submit", async function (e) {
 const showTask = async (e) => {
   // e.preventDefault();
   try {
-    // const response = await axios.get("/tasks");
-    const response = await axios.get(`${apiBaseUrl}/tasks`);
+    const response = await axios.get("/tasks");
+    // const response = await axios.get(`${apiBaseUrl}/tasks`);
     console.log(response);
     const {
       data: { tasks },
@@ -41,7 +41,7 @@ const showTask = async (e) => {
 
       const taskHTML = `
         <div class="task">
-          <h4><i class="fa-solid fa-bars-progress"></i> &nbsp;${name}</h4>
+          <h4 class="task-name"><i class="fa-solid fa-bars-progress"></i> &nbsp;${name}</h4>
         
         <p class="status-container">${(status = status
           ? `<i class="fa-solid fa-check" style="color: #5dff05;"></i> completed`
@@ -71,25 +71,25 @@ showTask();
 //       err.response.headers || "Failed to load tasks.";
 //   }
 // };
-// taskContainer.addEventListener("click", async function (e) {
-//   const el = e.target;
-//   if (el.parentElement.classList.contains("delete-btn")) {
-//     // loadingDOM.style.visibility = "visible";
-//     const id = el.parentElement.dataset.id;
-//     try {
-//       await axios.delete(`/tasks/${id}`);
-//       showTask();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-//   // task.style.opacity = 0;
-// });
+taskContainer.addEventListener("click", async function (e) {
+  const el = e.target;
+  if (el.parentElement.classList.contains("delete-btn")) {
+    // loadingDOM.style.visibility = "visible";
+    const id = el.parentElement.dataset.id;
+    try {
+      await axios.delete(`/tasks/${id}`);
+      showTask();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // task.style.opacity = 0;
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // const response = await axios.post("/login", data);
-    const response = await axios.get(`${apiBaseUrl}/login`, data);
+    const response = await axios.post("/login", data);
+    // const response = await axios.get(`${apiBaseUrl}/login`, data);
     console.log(response);
   } catch (error) {
     console.log(error);
@@ -117,13 +117,13 @@ logout.addEventListener("click", function () {
 // deleteBtn.addEventListener("click", function () {
 //   console.log("hello");
 // });
-updateBtn.forEach((e) => {
-  e.addEventListener("click", () => {
-    alert("click");
-  });
-});
-deleteBtn.forEach((e) => {
-  e.addEventListener("click", () => {
-    alert("click");
-  });
-});
+// updateBtn.forEach((e) => {
+//   e.addEventListener("click", () => {
+//     alert("click");
+//   });
+// });
+// deleteBtn.forEach((e) => {
+//   e.addEventListener("click", () => {
+//     alert("click");
+//   });
+// });

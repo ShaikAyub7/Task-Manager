@@ -33,11 +33,13 @@ body {
   padding: 10px;
   /* background-color: antiquewhite; */
   /* box-shadow: 10px 10px 5px gray; */
-
+  max-height: 80vh;
   overflow: scroll;
-  max-height: 400px;
 }
 .container::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar {
   display: none;
 }
 .tasks {
@@ -77,6 +79,9 @@ body {
 .form {
   display: flex;
 }
+.task-name {
+  text-transform: capitalize;
+}
 .task {
   width: 500px;
   display: grid;
@@ -92,6 +97,11 @@ body {
   align-items: center;
   justify-content: space-evenly;
   /* border: 0.5px solid black; */
+}
+@media screen and (max-width: 1144px) {
+  .container {
+    max-height: 100%;
+  }
 }
 @media screen and (max-width: 800px) {
   .main {
@@ -112,6 +122,9 @@ body {
   }
   .input {
     width: 200px;
+  }
+  .container {
+    max-height: 400px;
   }
 }
 @media screen and (max-width: 300px) {

@@ -11,8 +11,8 @@ const showTask = async (e) => {
   let tempName;
 
   try {
-    const response = await axios.get(`${apiBaseUrl}/tasks/${id}`);
-    // const response = await axios.get(`/tasks/${id}`);
+    // const response = await axios.get(`${apiBaseUrl}/tasks/${id}`);
+    const response = await axios.get(`/tasks/${id}`);
     // console.log(response);
     const { data } = response;
     const { name, status, _id: taskID } = data.task;
@@ -36,7 +36,7 @@ form.addEventListener("submit", async function (e) {
   const id = new URLSearchParams(params).get("id");
   //  const response = await axios.patch(`/tasks/${id}`
   try {
-    const response = await axios.patch(`${apiBaseUrl}/tasks/${id}`, {
+    const response = await axios.patch(`/tasks/${id}`, {
       name: taskName,
       status: taskCompleted,
     });
