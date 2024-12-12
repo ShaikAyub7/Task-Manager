@@ -15,7 +15,7 @@ form.addEventListener("submit", async function (e) {
   try {
     const response = await axios.post("/login", data);
     // const response = await axios.post(`${apiBaseUrl}/login`, data);
-    formDataContainer.innerHTML = `${data.name} ${data.email}`;
+    // formDataContainer.innerHTML = `${data.name} ${data.email}`;
     console.log("Success:", response.data);
     const { token } = response.data.user;
     console.log(token);
